@@ -1,0 +1,16 @@
+---
+# tasks file for web
+- name: install tomcat9
+  apt:
+   name: tomcat9
+   state: present
+   update_cache: yes
+
+- name: copy hello-1.0.war
+  synchronize:
+    mode: pull
+    src: 178.154.224.86/
+    dest: /var/lib/tomcat9/webapps/
+  delegate_to: delegate.host
+  notify:
+   restart: tomcat9

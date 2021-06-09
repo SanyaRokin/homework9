@@ -1,0 +1,17 @@
+---
+
+- name: maven configuration
+  hosts: prod
+  become: yes
+
+  roles:
+   - prod
+
+- name: tomcat configuration
+  hosts: web
+  become: yes
+
+  roles:
+   - web
+
+

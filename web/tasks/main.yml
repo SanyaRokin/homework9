@@ -1,0 +1,12 @@
+---
+# tasks file for web
+- name: install tomcat9
+  apt:
+   name: tomcat9
+   state: present
+   update_cache: yes
+
+- name: copy hello-1.0.war
+  copy: src=hello-1.0.war dest={{ dest_folder }}/hello-1.0.war mode=0555
+  notify:
+    - restart tomcat
