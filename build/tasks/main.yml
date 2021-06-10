@@ -1,0 +1,17 @@
+---
+# tasks file for build
+- name: install packages
+  apt: name={{item}} state=present update_cache=yes
+  with_items:
+      - default-jdk
+      - maven
+      - git
+- name: Ensure git clonned
+  git: repo={{ repo_url }} dest={{ dest_folder }}
+
+- name: Run mvn package
+  command: chdir={{ dest_folder }} mvn package
+
+- name: Copy
+  fetch: src={{ dest_folder }}/target/hello-1.0.war dest={{ dest_folder_web_node }} flat=yes
+    

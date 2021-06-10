@@ -1,0 +1,6 @@
+---
+# defaults file for prod
+repo_url: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+dest_folder: /tmp/boxfuse-sample-java-war-hello
+dest_folder_web_node: ~/.ansible/roles/web/files/
+
